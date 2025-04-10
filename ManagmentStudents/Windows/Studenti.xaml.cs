@@ -55,38 +55,24 @@ namespace ManagmentStudents.Windows
 
         private void DeleteStudentBtn_Click(object sender, RoutedEventArgs e)
         {
-            //var students = StudentsLv.SelectedItem as Students;
-            //if (students != null)
-            //{
-            //    MessageBoxResult message = MessageBox.Show($"Вы действительно хотите отчислить студента {students.SurName} {students.Name} ?", "Удаление", MessageBoxButton.YesNo);
-            //    if (message == MessageBoxResult.Yes)
-            //    {
-            //        Connection.stusentEntities.SaveChanges();
-
-            //        Connect.Connection.stusentEntities.SaveChanges();
-
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Вы никого не выбрали.");
-            //}
             if (StudentsLv.SelectedItem != null)
             {
 
                 students.Remove((Students)StudentsLv.SelectedItem);
-                Connect.Connection.stusentEntities.SaveChanges();
+
+
                 StudentsLv.Items.Refresh();
             }
             else
             {
                 MessageBox.Show("Выберите студента для удаления!");
             }
+
         }
 
         private void AddStudentBtn_Click(object sender, RoutedEventArgs e)
         {
-            Windows.AddStudents addStudents = new Windows.AddStudents(); //Случайно назвала EditReaderBtn, у вас скорее всего называется EditReaderWindow, не путайтесь
+            Windows.AddStudents addStudents = new Windows.AddStudents();
             addStudents.Show();
         }
     }
